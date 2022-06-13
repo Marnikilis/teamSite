@@ -95,9 +95,7 @@ export async function getServerSideProps(context: NextPageContext) {
     const post = response.data.selectedPost;
 
     return {
-      props: {
-        post,
-      },
+      props: post,
     };
   } catch (e) {
     return console.log(e)

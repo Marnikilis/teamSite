@@ -5,7 +5,6 @@ import Image from 'next/image';
 
 export default function CommentCard({ text, avatar, author }: CommentType) {
 
-  console.log(avatar)
   return (
     <div className={styles.cardContainer}>
       <div className={styles.cardContent}>

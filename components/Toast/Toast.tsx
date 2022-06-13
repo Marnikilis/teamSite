@@ -9,7 +9,7 @@ export default function Toast({ toast, deleteToast }: any) {
     return () => {
       clearInterval(interval);
     };
-  }, [deleteToast]);
+  }, []);
 
   return (
     <div
