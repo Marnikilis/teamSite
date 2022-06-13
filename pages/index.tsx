@@ -51,7 +51,7 @@ export default function Home(props: CommentsType) {
 }
 
 export async function getServerSideProps() {
-  const response = await axios.get("http://localhost:3000/api/comments");
+  const response = await axios.get(`${process.env.LOCALHOST_URL}api/comments`);
   const comments = response.data.comments;
 
   return {

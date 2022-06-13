@@ -1,5 +1,6 @@
 import styles from "../../styles/Blog.module.scss";
 import { PostI } from "../../interfaces/Interfaces";
+import Image from 'next/image';
 
 export default function PostCard({ post }: PostI) {
   return (
@@ -13,7 +14,12 @@ export default function PostCard({ post }: PostI) {
         <div className={styles.text}>{post.text}</div>
       </div>
       <div className={styles.authorInfo}>
-        <img src={post.author?.avatar} alt="Avatar" width={45} height={45} />
+        <Image
+          src={post.author!.avatar}
+          alt="Avatar"
+          width={45}
+          height={45}
+        />
         <div>
           <span>{post.author?.name}</span>
           <span className={styles.line}>|</span>

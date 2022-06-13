@@ -43,7 +43,7 @@ export default function Index(props: BlogI) {
 export const getServerSideProps = async (context: NextPageContext) => {
   const pageId = context.query.page;
   const response = await axios.get(
-    `http://localhost:3000/api/posts?page=${pageId}`
+    `${process.env.LOCALHOST_URL}api/posts?page=${pageId}`
   );
   const posts = response.data.posts;
   const pages = response.data.pages;
