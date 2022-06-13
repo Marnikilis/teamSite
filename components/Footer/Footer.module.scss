@@ -1,0 +1,94 @@
+@import '../../styles/mixins';
+@import '../../styles/settings';
+
+.footer {
+  min-height: 300px;
+  padding: 40px 0;
+  background-color: #252B3B;
+  font-family: 'Karla', sans-serif;
+  color: #FFFFFF;
+  font-size: 14px;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+}
+
+.icon {
+  width: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+.footerNav {
+  display: flex;
+  gap: 80px;
+
+  & > * {
+    &:first-child {
+      margin-right: 100px;
+
+      @include media-max($lg-break) {
+        margin-right: 40px;
+      }
+      @include media-max($l-break) {
+        margin-right: 10px;
+      }
+    }
+
+    &:last-child {
+      flex: 0 0 300px;
+    }
+  }
+
+  @include media-max($lg-break) {
+    flex-wrap: wrap;
+  }
+  @include media-max($xxs-break) {
+    gap: 50px;
+  }
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  gap: 17px;
+}
+
+.caption {
+  margin-bottom: 5px;
+  font-family: 'Mulish', sans-serif;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+.newsletter {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    font-size: 18px;
+    margin-bottom: 17px;
+  }
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  background-color: #F5F7FA;
+  padding: 0 16px;
+
+  input {
+    background-color: inherit;
+    width: 100%;
+    padding-left: 0;
+
+    &::placeholder {
+      color: #4DA0FD;
+    }
+  }
+}

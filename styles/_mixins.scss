@@ -1,0 +1,32 @@
+@import "settings";
+
+@mixin media-max($query) {
+  @media (max-width: #{$query}px) {
+    @content;
+  }
+}
+
+@mixin media-min($query) {
+  @media (min-width: #{$query}px) {
+    @content;
+  }
+}
+
+@mixin media-max-wh($width, $height) {
+  @media (max-width: #{$width}px) and (max-height: #{$height}px) {
+    @content;
+  }
+}
+
+@mixin btn-reset {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  cursor: pointer;
+}
+
+

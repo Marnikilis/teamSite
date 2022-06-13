@@ -1,0 +1,28 @@
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.nextBtn,
+.prevBtn {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  padding: 11px 67px;
+  font-family: 'Mulish', sans-serif;
+  color: gray;
+  font-size: 14px;
+  line-height: 21px;
+  background: rgba(#1E2742, 0.1);
+  border-radius: 4px;
+  margin-bottom: 140px;
+}
+
+.prevBtn {
+
+  & > * {
+    transform: rotate(180deg);
+  }
+}
+

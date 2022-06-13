@@ -1,0 +1,48 @@
+@import '../../styles/mixins';
+@import '../../styles/settings';
+
+.heading {
+  display: flex;
+  justify-content: center;
+}
+
+.carouselContainer {
+  margin-left: -13px;
+}
+
+.slider {
+  padding: 90px 0 60px 0;
+  display: flex;
+  transition: $transition;
+
+  @include media-max($sm-break) {
+    padding: 60px 0;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 23px;
+  justify-content: flex-end;
+  margin-bottom: 160px;
+
+  & > * {
+    fill: #4DA0FD;
+
+    &:nth-child(2) {
+      transform: rotate(180deg);
+    }
+  }
+
+  button {
+    display: flex;
+
+    &:disabled .arrowBtn {
+      fill: #DADADA;
+    }
+  }
+}
+
+.arrowBtn {
+  fill: #4DA0FD;
+}

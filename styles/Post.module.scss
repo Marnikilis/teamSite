@@ -1,0 +1,97 @@
+@import 'mixins';
+@import 'settings';
+
+.postContainer {
+  padding: 170px;
+  font-family: 'Mulish', sans-serif;
+
+  @include media-max($md-break) {
+    padding: 100px;
+  }
+  @include media-max($sm-break) {
+    padding: 0;
+  }
+}
+
+.heading {
+  font-family: 'Mukta', sans-serif;
+  font-size: 48px;
+  line-height: 80px;
+  padding: 0 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+
+  @include media-max($md-break) {
+    padding: 0 80px;
+  }
+  @include media-max($sm-break) {
+    padding: 0 50px;
+  }
+  @include media-max($xs-break) {
+    padding: 0 10px;
+  }
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  color: rgba(109, 125, 139, 1);
+  font-size: 14px;
+  gap: 15px;
+  margin-bottom: 60px;
+
+  span {
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+  }
+}
+
+.postPhoto {
+  width: 100%;
+  min-height: 160px;
+}
+
+.text {
+  margin: 60px 100px 0 100px;
+  font-size: 18px;
+  line-height: 29px;
+
+  @include media-max($md-break) {
+    margin: 80px;
+  }
+  @include media-max($sm-break) {
+    margin: 40px;
+  }
+  @include media-max($xs-break) {
+    margin: 30px 10px;
+  }
+}
+
+.line {
+  margin: 0 14px;
+}
+
+.writtenBy {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 56px 0 83px 0;
+  color: rgba(152, 152, 152, 1);
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 52px;
+
+  span {
+    display: block;
+    color: rgba(37, 49, 60, 1);
+
+    &:nth-child(2) {
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 8px;
+    }
+  }
+}

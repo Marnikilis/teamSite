@@ -1,0 +1,113 @@
+@import 'mixins';
+@import 'settings';
+
+.background {
+  background: #F5F7FA url("../public/images/background.png") center top no-repeat;
+  background-size: contain;
+  overflow: hidden;
+
+  @include media-max($sm-break) {
+    background: #F5F7FA url("../public/images/smallBg.png") center top no-repeat;
+    background-size: contain;
+  }
+}
+
+.firstContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 110px 0 180px 0;
+  margin-bottom: 140px;
+  text-shadow: 1px 1px 2px #252B3B;
+
+  @include media-max($md-break) {
+    padding: 40px 0;
+  }
+  @include media-max($sm-break) {
+    padding: 180px 0;
+  }
+  @include media-max($xs-break) {
+    padding: 60px 0;
+  }
+  @include media-max($l-break) {
+    padding: 20px 0;
+    margin-bottom: 50px;
+  }
+  @include media-max($xxs-break) {
+    margin-bottom: 10px;
+  }
+}
+
+.textContent {
+  width: 35%;
+  color: #FFFFFF;
+  font-size: 48px;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 56px;
+  margin-bottom: 70px;
+
+  span {
+    display: inline-block;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 29px;
+
+    @include media-max($xs-break) {
+      font-size: 15px;
+    }
+  }
+
+  @include media-max($md-break) {
+    width: 45%;
+  }
+  @include media-max($md-break) {
+    font-size: 35px;
+  }
+  @include media-max($xs-break) {
+    margin-bottom: 20px;
+    font-size: 25px;
+    line-height: 33px;
+  }
+}
+
+.accessForm {
+  display: flex;
+  gap: 14px;
+  font-family: 'Mulish', sans-serif;
+
+  input {
+    color: #6D7D8B;
+    flex: 0 1 317px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 16px 20px;
+    background-color: #0BBEF2;
+    color: #FFFFFF;
+    line-height: 24px;
+    border-radius: 4px;
+    font-weight: 700;
+
+    @include media-max($sm-break) {
+      padding: 10px;
+      font-size: 15px;
+    }
+    @include media-max($xxs-break) {
+      padding: 8px;
+      font-size: 14px;
+    }
+  }
+
+  @include media-max($sm-break) {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  @include media-max($xxs-break) {
+    flex-direction: row;
+    gap: 10px;
+  }
+}

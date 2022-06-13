@@ -1,0 +1,117 @@
+@import '../../styles/mixins';
+@import '../../styles/settings';
+
+.container {
+  font-family: 'Mulish', sans-serif;
+  color: #000000;
+  margin-bottom: 160px;
+
+  @include media-max($md-break) {
+    margin-bottom: 100px;
+  }
+  @include media-max($sm-break) {
+    margin-bottom: 70px;
+  }
+}
+
+.teamContainer {
+  background: url("../../public/images/description/teamworkBg.png") no-repeat center right;
+  background-size: contain;
+  margin-bottom: 60px;
+
+  @include media-max($md-break) {
+    background-size: 450px;
+  }
+  @include media-max($xs-break) {
+    background-size: 350px;
+  }
+  @include media-max($l-break) {
+    background-position: bottom right;
+  }
+}
+
+.taskContainer {
+  background: url("../../public/images/description/taskBg.png") no-repeat center left;
+  background-size: 560px;
+  margin-bottom: 60px;
+
+  @include media-max($md-break) {
+    background-size: 400px;
+  }
+  @include media-max($xs-break) {
+    background-size: 300px;
+  }
+  @include media-max($l-break) {
+    background-position: bottom left;
+  }
+}
+
+.scheduleContainer {
+  background: url("../../public/images/description/scheduleBg.png") no-repeat center right;
+  background-size: 560px;
+
+  @include media-max($md-break) {
+    background-size: 400px;
+  }
+  @include media-max($xs-break) {
+    background-size: 300px;
+  }
+  @include media-max($l-break) {
+    background-position: bottom right;
+  }
+}
+
+.teamBg {
+  padding: 150px 0;
+  width: 40%;
+
+  @include media-max($lg-break) {
+    padding: 50px 0;
+  }
+  @include media-max($l-break) {
+    padding-bottom: 370px;
+    width: 100%;
+  }
+}
+
+.taskBg {
+  padding: 150px 0;
+  width: 40%;
+  margin-left: auto;
+
+  @include media-max($l-break) {
+    padding: 50px 0 350px 0;
+    width: 100%;
+  }
+}
+
+.mb {
+  margin-bottom: 30px;
+
+  @include media-max($xs-break) {
+    margin-bottom: 15px;
+  }
+}
+
+.text {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 29px;
+  margin-bottom: 40px;
+
+  @include media-max($xs-break) {
+    font-size: 15px;
+  }
+}
+
+.btn {
+  display: flex;
+
+  span {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28px;
+    color: #4DA0FD;
+    border-bottom: 1px solid #4DA0FD;
+  }
+}

@@ -1,0 +1,65 @@
+@import '../../../styles/mixins';
+@import '../../../styles/settings';
+
+.menuToggle {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  cursor: pointer;
+  height: 1.5px;
+  background-color: currentColor;
+  width: 20px;
+  z-index: 5000;
+  transition: all .5s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include media-max($sm-break) {
+    display: flex;
+  }
+  @include media-max($xxs-break) {
+    right: 15px;
+  }
+}
+
+.menuToggle.open {
+  right: 20px;
+}
+
+.menuOpen {
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: currentColor;
+  }
+
+  &:before {
+    transform: translateY(-0.4rem);
+  }
+
+  &:after {
+    transform: translateY(0.4rem);
+  }
+}
+
+.menuClose {
+  transform: rotate(45deg);
+
+  &:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: currentColor;
+  }
+
+  &:before {
+    transform: rotate(90deg);
+  }
+}
