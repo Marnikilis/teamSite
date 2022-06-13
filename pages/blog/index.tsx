@@ -22,17 +22,17 @@ export default function Index(props: BlogI) {
                     key={i}
                     href={{
                       pathname: "/blog/[postId]",
-                      query: { postId: post.slug },
+                      query: {postId: post.slug},
                     }}
                   >
                     <div className={styles.postContainer}>
-                      <PostCard post={post} />
+                      <PostCard post={post}/>
                     </div>
                   </Link>
                 );
               })}
             </div>
-            <Pagination totalPages={props.pages} path={"/blog"} />
+            <Pagination totalPages={props.pages} path={"/blog"}/>
           </div>
         </div>
       </MainLayout>
@@ -41,17 +41,20 @@ export default function Index(props: BlogI) {
 }
 
 export const getServerSideProps = async (context: NextPageContext) => {
-  const pageId = context.query.page;
-  const response = await axios.get(
-    `${process.env.LOCALHOST_URL}api/posts?page=${pageId}`
-  );
-  const posts = response.data.posts;
-  const pages = response.data.pages;
+  try {
+    const pageId = context.query.page;
+    const response = await axios.get(
+      `${process.env.LOCALHOST_URL}api/posts?page=${pageId}`)
+    const posts = response.data.posts;
+    const pages = response.data.pages;
 
-  return {
-    props: {
-      posts,
-      pages,
-    },
-  };
+    return {
+      props: {
+        posts,
+        pages,
+      },
+    };
+  } catch (e) {
+    return console.log(e)
+  }
 };

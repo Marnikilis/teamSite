@@ -14,7 +14,7 @@ export default function Home(props: CommentsType) {
   const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     //@ts-ignore
-    registrationHandler({ email, setEmail });
+    registrationHandler({email, setEmail});
   };
 
   return (
@@ -43,20 +43,24 @@ export default function Home(props: CommentsType) {
             </form>
           </div>
         </div>
-        <Description />
-        <Comments comments={props.comments} />
+        <Description/>
+        <Comments comments={props.comments}/>
       </MainLayout>
     </div>
   );
 }
 
 export async function getServerSideProps() {
-  const response = await axios.get(`${process.env.LOCALHOST_URL}api/comments`);
-  const comments = response.data.comments;
+  try {
+    const response = await axios.get(`${process.env.LOCALHOST_URL}api/comments`);
+    const comments = response.data.comments;
 
-  return {
-    props: {
-      comments,
-    },
-  };
+    return {
+      props: {
+        comments,
+      },
+    };
+  } catch (e) {
+    return console.log(e)
+  }
 }

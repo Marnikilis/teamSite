@@ -89,13 +89,17 @@ export default function PostItem(props: PostI) {
 }
 
 export async function getServerSideProps(context: NextPageContext) {
-  const postId = context.query.postId;
-  const response = await axios.get(`${process.env.LOCALHOST_URL}/api/posts/${postId}`);
-  const post = response.data.selectedPost;
+  try {
+    const postId = context.query.postId;
+    const response = await axios.get(`${process.env.LOCALHOST_URL}/api/posts/${postId}`);
+    const post = response.data.selectedPost;
 
-  return {
-    props: {
-      post,
-    },
-  };
+    return {
+      props: {
+        post,
+      },
+    };
+  } catch (e) {
+    return console.log(e)
+  }
 }
