@@ -44,7 +44,7 @@ export const getServerSideProps = async (context: NextPageContext) => {
   try {
     const pageId = context.query.page;
     const response = await axios.get(
-      `${process.env.LOCALHOST_URL}api/posts?page=${pageId}`)
+      `${process.env.LOCALHOST_URL}/posts?page=${pageId}`)
     const posts = response.data.posts;
     const pages = response.data.pages;
 
