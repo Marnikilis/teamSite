@@ -1,10 +1,12 @@
 import MainLayout from "../../components/MainLayout/MainLayout";
 import styles from "../../styles/Post.module.scss";
-import { PostI } from "../../interfaces/Interfaces";
+import { PostI, PostT } from "../../interfaces/Interfaces";
 import axios from "axios";
 import { NextPageContext } from "next";
+import Image from 'next/image';
 
-export default function PostItem(props: PostI) {
+export default function PostItem(props : PostI) {
+
   return (
     <MainLayout>
       <div className={"mainContainer"}>
@@ -12,19 +14,19 @@ export default function PostItem(props: PostI) {
           <div className={styles.heading}>
             {props.post?.title}
             <div className={styles.author}>
-              <img
-                src={props.post.author?.avatar}
+              <Image
+                src={props.post?.author?.avatar}
                 alt="Avatar"
                 width={56}
                 height={56}
               />
-              <span>{props.post.author?.name}</span>
+              <span>{props.post?.author?.name}</span>
               <span className={styles.line}>|</span>
               <span>2nd January,2022</span>
             </div>
           </div>
           <img
-            src={props.post.postPhoto}
+            src={props.post?.postPhoto}
             alt="Avatar"
             className={styles.postPhoto}
           />
@@ -69,15 +71,15 @@ export default function PostItem(props: PostI) {
             all have the same purpose at their core… the love of writing and
             sharing information.
             <div className={styles.writtenBy}>
-              <img
-                src={props.post.author?.avatar}
+              <Image
+                src={props.post?.author?.avatar}
                 alt="Avatar"
                 width={56}
                 height={56}
               />
               <div>
                 <span>Written by</span>
-                <span>{props.post.author?.name}</span>
+                <span>{props.post?.author?.name}</span>
                 CEO Team App
               </div>
             </div>
@@ -95,9 +97,13 @@ export async function getServerSideProps(context: NextPageContext) {
     const post = response.data.selectedPost;
 
     return {
-      props: post,
+      props: {post},
     };
   } catch (e) {
-    return console.log(e)
+    return {
+      redirect: {
+        destination: '/',
+      }
+    }
   }
 }

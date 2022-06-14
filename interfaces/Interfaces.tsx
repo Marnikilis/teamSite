@@ -1,13 +1,26 @@
 export interface PostType {
-  id: string;
+  _id?: string;
   title: string;
-  slug?: string;
-  author?: {
+  slug: string;
+  author: {
     name: string;
     avatar: string;
   };
   postPhoto: string;
-  text?: string;
+  text: string;
+}
+export interface PostT {
+  post:{
+    _id?: string;
+    title: string;
+    slug: string;
+    author: {
+      name: string;
+      avatar: string;
+    };
+    postPhoto: string;
+    text: string;
+  }
 }
 
 export interface BlogI {

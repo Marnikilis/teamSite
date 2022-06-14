@@ -2,7 +2,7 @@ import styles from "./Comments.module.scss";
 import CommentCard from "./CommentCard/CommentCard";
 import Arrow from "../../public/images/comments/arrow.svg";
 import { useCarousel } from "../../hooks/useCarousel";
-import { TouchEventHandler, useRef } from "react";
+import {useRef } from "react";
 import { CommentsType } from "../../interfaces/Interfaces";
 
 export default function Comments({ comments }: CommentsType) {

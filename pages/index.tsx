@@ -61,6 +61,12 @@ export async function getServerSideProps() {
       },
     };
   } catch (e) {
-    return console.log(e)
+
+    return { props: {} }
+    // return {
+    //   redirect: {
+    //     destination: '/',
+    //   }
+    // }
   }
 }

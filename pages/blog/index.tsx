@@ -55,6 +55,10 @@ export const getServerSideProps = async (context: NextPageContext) => {
       },
     };
   } catch (e) {
-    return console.log(e)
+    return {
+      redirect: {
+        destination: '/',
+      }
+    }
   }
 };
