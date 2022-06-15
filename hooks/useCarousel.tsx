@@ -37,7 +37,7 @@ export const useCarousel = ({ items, ref, slider }: any) => {
       ref.current.style.marginLeft = -width * slide + "px";
     }
     if (items.length - slides === slide) {
-      ref.current.style.marginLeft = -(items.length*width - viewport - 10)+ "px";
+      ref.current.style.marginLeft = -(items.length*width - viewport + 25)+ "px";
       setNextDisabled((prevState) => !prevState);
     }
     setPrevDisabled(false);

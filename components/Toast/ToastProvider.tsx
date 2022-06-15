@@ -25,10 +25,9 @@ export const ToastContextProvider = ({ children }: any) => {
     setToasts((toasts) => toasts.slice(1));
   };
 
-  const registrationHandler = async ({ email, setEmail }: EmailType) => {
+  const registrationHandler = async (email: string) => {
     const response = await axios.post("/api/newsletter", { email: email });
     addToast(response.data.message);
-    setEmail("");
   };
 
   return (

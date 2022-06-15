@@ -3,21 +3,20 @@ import MainLayout from "../components/MainLayout/MainLayout";
 import Description from "../components/Description/Description";
 import Comments from "../components/Comments/Comments";
 import { CommentsType } from "../interfaces/Interfaces";
-import { FormEvent, useState } from "react";
 import useToastContext from "../components/Toast/useToastContext";
 import axios from "axios";
 import Header from '../components/Header/Header';
-import { Loader } from '../components/Loader/Loader';
+import { useForm } from 'react-hook-form';
 
 export default function Home(props: CommentsType) {
-  const [email, setEmail] = useState(" ");
+  const { register, handleSubmit, formState: { errors }, reset} = useForm();
   const registrationHandler = useToastContext();
 
-  const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    //@ts-ignore
-    registrationHandler({email, setEmail});
-  };
+  const onSubmitHandler = (data:any) => {
+    // @ts-ignore
+    registrationHandler(data.email);
+      reset();
+    };
 
   return (
     <MainLayout>
@@ -33,17 +32,24 @@ export default function Home(props: CommentsType) {
               </span>
             </div>
             <form
-              onSubmit={(e) => onSubmitHandler(e)}
+              onSubmit={handleSubmit(onSubmitHandler)}
               className={styles.accessForm}
             >
               <input
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                {...register("email", {
+                  required:{value: true, message:"Required field"},
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Invalid format"
+                  }
+                })
+                }
                 placeholder="Email"
               />
               <button type="submit">Get early access</button>
             </form>
+            {errors.email && <div className={styles.errMessage}>{errors.email.message}</div>}
           </div>
         </div>
       </div>

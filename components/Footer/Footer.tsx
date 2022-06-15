@@ -4,18 +4,17 @@ import Instagram from "../../public/images/footer/instagram.svg";
 import Facebook from "../../public/images/footer/facebook.svg";
 import Twitter from "../../public/images/footer/twitter.svg";
 import Arrow from "../../public/images/footer/arrow.svg";
-import { FormEvent, useState } from "react";
-
 import useToastContext from "../Toast/useToastContext";
+import { useForm } from 'react-hook-form';
 
 export default function Footer() {
-  const [email, setEmail] = useState(" ");
+  const { register, handleSubmit, formState: { errors }, reset} = useForm();
   const registrationHandler = useToastContext();
 
-  const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    //@ts-ignore
-    registrationHandler({ email, setEmail });
+  const onSubmitHandler = (data:any) => {
+    // @ts-ignore
+    registrationHandler(data.email);
+    reset();
   };
 
   return (
@@ -31,7 +30,7 @@ export default function Footer() {
             <Link href={"/"}>
               <a>
                 <Instagram className={styles.icon}/>
-                <div>instagram</div>
+                <div>Instagram</div>
               </a>
             </Link>
             <Link href={"/"}>
@@ -89,17 +88,24 @@ export default function Footer() {
           </div>
           <div className={styles.newsletter}>
             <span>Subscribe to our newsletter</span>
-            <form onSubmit={onSubmitHandler} className={styles.inputContainer}>
+            <form onSubmit={handleSubmit(onSubmitHandler)} className={styles.inputContainer}>
               <input
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                {...register("email", {
+                  required:{value: true, message:"Required field"},
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Invalid format"
+                  }
+                })
+                }
                 placeholder="Email"
               />
               <button type="submit">
                 <Arrow />
               </button>
             </form>
+            {errors.email && <div className={styles.errMessage}>{errors.email.message}</div>}
           </div>
         </div>
       </div>

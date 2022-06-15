@@ -7,16 +7,27 @@
 }
 
 .carouselContainer {
-  margin-left: -13px;
+  margin-left: -35px;
+  overflow: hidden;
+
+  @include media-max($sm-break) {
+    margin-left: -10px;
+  }
+  @include media-max($l-break) {
+    margin-left: -20px;
+  }
 }
 
 .slider {
-  padding: 90px 0 60px 0;
+  padding: 90px 0 60px 15px;
   display: flex;
   transition: $transition;
 
   @include media-max($sm-break) {
     padding: 60px 0;
+  }
+  @include media-max($l-break) {
+    padding: 60px 20px;
   }
 }
 
