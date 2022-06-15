@@ -24,10 +24,10 @@
   transition: $transition;
 
   @include media-max($sm-break) {
-    padding: 60px 0;
+    padding: 60px 20px;
   }
   @include media-max($l-break) {
-    padding: 60px 20px;
+    //padding: 60px 20px;
   }
 }
 
