@@ -13,8 +13,8 @@ export default async function PostHandler(
     const selectedPost = await Post.findOne({ slug: postId })
       .populate("author")
       .exec();
-    res.status(200).json({ selectedPost });
     client.disconnect();
+    res.status(200).json({ selectedPost });
   } catch (e) {
     return res.status(404).json({ message: "Not found" });
   }

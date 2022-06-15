@@ -3,37 +3,31 @@
 
 .background {
   background: #F5F7FA url("../public/images/background.png") center top no-repeat;
-  background-size: contain;
-  overflow: hidden;
+  background-size: cover;
+  margin-bottom: 100px;
+
+  @include media-max($md-break) {
+    margin-bottom: 50px;
+  }
 
   @include media-max($sm-break) {
     background: #F5F7FA url("../public/images/smallBg.png") center top no-repeat;
-    background-size: contain;
+    background-size: cover;
+    margin-bottom: 0;
   }
 }
 
 .firstContainer {
   display: flex;
   flex-direction: column;
-  padding: 110px 0 180px 0;
-  margin-bottom: 140px;
+  padding: 110px 0 250px 0;
   text-shadow: 1px 1px 2px #252B3B;
 
-  @include media-max($md-break) {
-    padding: 40px 0;
-  }
-  @include media-max($sm-break) {
-    padding: 180px 0;
-  }
   @include media-max($xs-break) {
-    padding: 60px 0;
+    padding: 100px 0;
   }
   @include media-max($l-break) {
     padding: 20px 0;
-    margin-bottom: 50px;
-  }
-  @include media-max($xxs-break) {
-    margin-bottom: 10px;
   }
 }
 
@@ -58,10 +52,8 @@
   }
 
   @include media-max($md-break) {
-    width: 45%;
-  }
-  @include media-max($md-break) {
     font-size: 35px;
+    width: 45%;
   }
   @include media-max($xs-break) {
     margin-bottom: 20px;

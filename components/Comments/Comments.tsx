@@ -30,13 +30,13 @@ export default function Comments({ comments }: CommentsType) {
           onTouchEnd={(e: any) => onTouchEndHandler(e)}
           className={styles.slider}
         >
-          {comments.map((comment, i) => {
+          {comments?.map((comment, i) => {
             return (
               <CommentCard
                 key={i}
-                text={comment.text}
-                avatar={comment.avatar}
-                author={comment.author}
+                text={comment?.text}
+                avatar={comment?.avatar}
+                author={comment?.author}
               />
             );
           })}

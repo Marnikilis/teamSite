@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function PostCard({ post }: PostI) {
   return (
     <>
-      <div
+        <div
         className={styles.postPhoto}
         style={{ backgroundImage: `url(${post.postPhoto})` }}
       />

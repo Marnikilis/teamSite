@@ -2,7 +2,7 @@
 @import '../../styles/settings';
 
 .footer {
-  min-height: 300px;
+  min-height: 200px;
   padding: 40px 0;
   background-color: #252B3B;
   font-family: 'Karla', sans-serif;
@@ -81,6 +81,7 @@
   align-items: center;
   background-color: #F5F7FA;
   padding: 0 16px;
+  justify-content: space-between;
 
   input {
     background-color: inherit;

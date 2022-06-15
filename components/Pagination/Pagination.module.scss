@@ -17,6 +17,10 @@
   background: rgba(#1E2742, 0.1);
   border-radius: 4px;
   margin-bottom: 140px;
+
+  &:hover{
+    background: rgba(#1E2742, 0.15);
+  }
 }
 
 .prevBtn {

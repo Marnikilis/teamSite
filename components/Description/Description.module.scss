@@ -14,74 +14,84 @@
   }
 }
 
-.teamContainer {
-  background: url("../../public/images/description/teamworkBg.png") no-repeat center right;
-  background-size: contain;
-  margin-bottom: 60px;
-
-  @include media-max($md-break) {
-    background-size: 450px;
-  }
+.teamContainer{
   @include media-max($xs-break) {
-    background-size: 350px;
-  }
-  @include media-max($l-break) {
-    background-position: bottom right;
+    flex-direction: column;
   }
 }
-
 .taskContainer {
-  background: url("../../public/images/description/taskBg.png") no-repeat center left;
-  background-size: 560px;
-  margin-bottom: 60px;
-
-  @include media-max($md-break) {
-    background-size: 400px;
-  }
   @include media-max($xs-break) {
-    background-size: 300px;
+    flex-direction: column-reverse;
   }
-  @include media-max($l-break) {
-    background-position: bottom left;
+}
+.teamContainer,
+.taskContainer{
+  display: flex;
+  justify-content: space-between;
+
+  @include media-max($xs-break) {
+    margin-bottom: 20px;
   }
 }
 
-.scheduleContainer {
-  background: url("../../public/images/description/scheduleBg.png") no-repeat center right;
-  background-size: 560px;
 
-  @include media-max($md-break) {
-    background-size: 400px;
-  }
-  @include media-max($xs-break) {
-    background-size: 300px;
-  }
-  @include media-max($l-break) {
-    background-position: bottom right;
-  }
-}
-
-.teamBg {
+.textContent {
   padding: 150px 0;
   width: 40%;
 
   @include media-max($lg-break) {
+    padding: 100px 0;
+  }
+  @include media-max($sm-break) {
     padding: 50px 0;
   }
-  @include media-max($l-break) {
-    padding-bottom: 370px;
+  @include media-max($xs-break) {
+    padding: 50px 0;
     width: 100%;
   }
 }
 
-.taskBg {
-  padding: 150px 0;
-  width: 40%;
-  margin-left: auto;
+.teamBg,
+.taskBg,
+.scheduleBg{
+  width: 50%;
 
-  @include media-max($l-break) {
-    padding: 50px 0 350px 0;
+  @include media-max($xs-break) {
     width: 100%;
+  }
+}
+.teamBg{
+  background: url("../../public/images/description/teamworkBg.png") no-repeat center right;
+  background-size: contain;
+
+  @include media-max($xs-break) {
+    min-height: 500px;
+  }
+}
+
+.taskBg {
+  background: url("../../public/images/description/taskBg.png") no-repeat center left;
+  background-size: 500px;
+
+  @include media-max($md-break) {
+    background-size: 400px;
+  }
+  @include media-max($xs-break) {
+    background-size: contain;
+    min-height: 400px;
+  }
+}
+
+.scheduleBg {
+  background: url("../../public/images/description/scheduleBg.png") no-repeat center right;
+  background-size: 500px;
+
+  @include media-max($md-break) {
+    background-size: 400px;
+  }
+  @include media-max($xs-break) {
+    background-size: contain;
+    min-height: 400px;
   }
 }
 

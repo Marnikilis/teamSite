@@ -30,13 +30,18 @@
   padding: 65px 0 40px;
 }
 
-.postContainer {
+.postCardContainer {
   flex: 1 1 363px;
   background: #FFFFFF;
   border-radius: 30px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+
+  &:hover{
+    opacity: 0.9;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  }
 }
 
 .postPhoto {

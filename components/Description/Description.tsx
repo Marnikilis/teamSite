@@ -6,7 +6,7 @@ export default function Description() {
     <div className={styles.container}>
       <div className={"mainContainer"}>
         <div className={styles.teamContainer}>
-          <div className={styles.teamBg}>
+          <div className={styles.textContent}>
             <div className={`heading ${styles.mb}`}>Your Hub for teamwork</div>
             <div className={styles.text}>
               Give everyone you work with—inside and outside your company—a more
@@ -19,9 +19,11 @@ export default function Description() {
               <Arrow />
             </button>
           </div>
+          <div className={styles.teamBg}/>
         </div>
         <div className={styles.taskContainer}>
-          <div className={styles.taskBg}>
+          <div className={styles.taskBg}/>
+          <div className={styles.textContent}>
             <div className={`heading ${styles.mb}`}>Simple task management</div>
             <div className={styles.text}>
               Give everyone you work with—inside and outside your company—a more
@@ -35,8 +37,8 @@ export default function Description() {
             </button>
           </div>
         </div>
-        <div className={styles.scheduleContainer}>
-          <div className={styles.teamBg}>
+        <div className={styles.teamContainer}>
+          <div className={styles.textContent}>
             <div className={`heading ${styles.mb}`}>
               Scheduling that actually works
             </div>
@@ -51,6 +53,7 @@ export default function Description() {
               <Arrow />
             </button>
           </div>
+          <div className={styles.scheduleBg}/>
         </div>
       </div>
     </div>

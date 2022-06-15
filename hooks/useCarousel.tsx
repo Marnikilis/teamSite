@@ -27,18 +27,17 @@ export const useCarousel = ({ items, ref, slider }: any) => {
   };
 
   const nextCardHandler = () => {
+    let viewport = slider.current.getBoundingClientRect().width;
     let width = ref.current.children[0].getBoundingClientRect().width;
-    let slides = Math.round(
-      slider.current.getBoundingClientRect().width / width
-    );
+    let slides = Math.round(viewport/ width);
 
     setSlide((prevState) => prevState + 1);
 
     if (slide > 0) {
       ref.current.style.marginLeft = -width * slide + "px";
     }
-
     if (items.length - slides === slide) {
+      ref.current.style.marginLeft = -(items.length*width - viewport - 10)+ "px";
       setNextDisabled((prevState) => !prevState);
     }
     setPrevDisabled(false);

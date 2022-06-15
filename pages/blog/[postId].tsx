@@ -4,15 +4,17 @@ import { PostI, PostT } from "../../interfaces/Interfaces";
 import axios from "axios";
 import { NextPageContext } from "next";
 import Image from 'next/image';
+import Header from '../../components/Header/Header';
 
 export default function PostItem(props : PostI) {
 
   return (
     <MainLayout>
+      <Header/>
       <div className={"mainContainer"}>
         <div className={styles.postContainer}>
           <div className={styles.heading}>
-            {props.post?.title}
+            <div className={styles.title}>{props.post?.title} </div>
             <div className={styles.author}>
               <Image
                 src={props.post?.author?.avatar}
@@ -22,7 +24,7 @@ export default function PostItem(props : PostI) {
               />
               <span>{props.post?.author?.name}</span>
               <span className={styles.line}>|</span>
-              <span>2nd January,2022</span>
+              <span>2nd January, 2022</span>
             </div>
           </div>
           <img
@@ -80,7 +82,7 @@ export default function PostItem(props : PostI) {
               <div>
                 <span>Written by</span>
                 <span>{props.post?.author?.name}</span>
-                CEO Team App
+                <span>CEO Team App</span>
               </div>
             </div>
           </div>
@@ -90,7 +92,7 @@ export default function PostItem(props : PostI) {
   );
 }
 
-export async function getServerSideProps(context: NextPageContext) {
+export const getServerSideProps = async(context: NextPageContext)=> {
   try {
     const postId = context.query.postId;
     const response = await axios.get(`${process.env.LOCALHOST_URL}/posts/${postId}`);
@@ -101,9 +103,7 @@ export async function getServerSideProps(context: NextPageContext) {
     };
   } catch (e) {
     return {
-      redirect: {
-        destination: '/',
-      }
+      props: {}
     }
   }
 }

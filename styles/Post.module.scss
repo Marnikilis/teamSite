@@ -2,44 +2,47 @@
 @import 'settings';
 
 .postContainer {
-  padding: 170px;
+  padding: 100px 150px;
   font-family: 'Mulish', sans-serif;
 
-  @include media-max($md-break) {
-    padding: 100px;
-  }
   @include media-max($sm-break) {
-    padding: 0;
+    padding: 30px;
+  }
+  @include media-max($l-break) {
+    padding: 30px 0;
   }
 }
 
 .heading {
-  font-family: 'Mukta', sans-serif;
-  font-size: 48px;
-  line-height: 80px;
-  padding: 0 100px;
   display: flex;
   flex-direction: column;
   gap: 23px;
+  padding: 0 50px;
+  margin-bottom: 60px;
 
-  @include media-max($md-break) {
-    padding: 0 80px;
-  }
-  @include media-max($sm-break) {
-    padding: 0 50px;
-  }
   @include media-max($xs-break) {
     padding: 0 10px;
+    margin-bottom: 30px;
   }
 }
+.title{
+  font-family: 'Mukta', sans-serif;
+  font-size: 48px;
+  line-height: 1.1;
 
+  @include media-max($md-break) {
+    font-size: 40px;
+  }
+  @include media-max($sm-break) {
+    font-size: 35px;
+  }
+}
 .author {
   display: flex;
   align-items: center;
   color: rgba(109, 125, 139, 1);
   font-size: 14px;
   gap: 15px;
-  margin-bottom: 60px;
 
   span {
     font-family: 'Mulish', sans-serif;
@@ -55,23 +58,25 @@
 }
 
 .text {
-  margin: 60px 100px 0 100px;
+  margin: 60px 50px 0 50px;
   font-size: 18px;
-  line-height: 29px;
+  line-height: 1.5;
 
-  @include media-max($md-break) {
-    margin: 80px;
-  }
   @include media-max($sm-break) {
     margin: 40px;
   }
   @include media-max($xs-break) {
     margin: 30px 10px;
+    font-size: 16px;
   }
 }
 
 .line {
   margin: 0 14px;
+
+  @include media-max($xs-break) {
+    margin: 0 5px;
+  }
 }
 
 .writtenBy {
@@ -79,19 +84,29 @@
   align-items: flex-start;
   gap: 15px;
   padding: 56px 0 83px 0;
-  color: rgba(152, 152, 152, 1);
-  font-size: 14px;
-  line-height: 21px;
-  margin-bottom: 52px;
 
   span {
     display: block;
-    color: rgba(37, 49, 60, 1);
 
+    &:nth-child(1){
+      color: rgba(37, 49, 60, 1);
+      font-size: 14px;
+      line-height: 1.2;
+    }
     &:nth-child(2) {
+      color: rgba(37, 49, 60, 1);
       font-size: 24px;
-      line-height: 30px;
+      line-height: 1.2;
       margin-bottom: 8px;
+
+      @include media-max($sm-break) {
+        font-size: 20px;
+      }
+    }
+    &:nth-child(3){
+      color: rgba(152, 152, 152, 1);
+      font-size: 14px;
+      line-height: 1.2;
     }
   }
 }

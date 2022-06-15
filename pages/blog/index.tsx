@@ -6,11 +6,14 @@ import { BlogI } from "../../interfaces/Interfaces";
 import axios from "axios";
 import Pagination from "../../components/Pagination/Pagination";
 import { NextPageContext } from "next";
+import Header from '../../components/Header/Header';
 
 export default function Index(props: BlogI) {
+
   return (
     <div className={styles.background}>
       <MainLayout>
+        <Header/>
         <div className={"mainContainer"}>
           <div className={styles.container}>
             <div className={"heading"}>Blog posts</div>
@@ -25,9 +28,9 @@ export default function Index(props: BlogI) {
                       query: {postId: post.slug},
                     }}
                   >
-                    <div className={styles.postContainer}>
+                    <a className={styles.postCardContainer}>
                       <PostCard post={post}/>
-                    </div>
+                    </a>
                   </Link>
                 );
               })}
@@ -56,9 +59,7 @@ export const getServerSideProps = async (context: NextPageContext) => {
     };
   } catch (e) {
     return {
-      redirect: {
-        destination: '/',
-      }
+      props:{}
     }
   }
 };

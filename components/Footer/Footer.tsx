@@ -30,29 +30,7 @@ export default function Footer() {
             </Link>
             <Link href={"/"}>
               <a>
-                <Instagram />
-                <div>instagram</div>
-              </a>
-            </Link>
-            <Link href={"/"}>
-              <a>
-                <div className={styles.icon}>
-                  <Facebook />
-                </div>
-                <span>Facebook</span>
-              </a>
-            </Link>
-            <Link href={"/"}>
-              <a>
-                <div className={styles.icon}>
-                  <Twitter />
-                </div>
-                <span>Twitter</span>
-              </a>
-            </Link>
-            <Link href={"/"}>
-              <a>
-                <Instagram />
+                <Instagram className={styles.icon}/>
                 <div>instagram</div>
               </a>
             </Link>
@@ -84,15 +62,6 @@ export default function Footer() {
             <Link href={"/"}>
               <a>Prototyping</a>
             </Link>
-            <Link href={"/"}>
-              <a>UI Design</a>
-            </Link>
-            <Link href={"/"}>
-              <a>UX Design</a>
-            </Link>
-            <Link href={"/"}>
-              <a>Prototyping</a>
-            </Link>
           </div>
           <div className={styles.social}>
             <div className={styles.caption}>Explore</div>
@@ -105,27 +74,9 @@ export default function Footer() {
             <Link href={"/"}>
               <a>Why I Love Figma</a>
             </Link>
-            <Link href={"/"}>
-              <a>Figma</a>
-            </Link>
-            <Link href={"/"}>
-              <a>Customers</a>
-            </Link>
-            <Link href={"/"}>
-              <a>Why I Love Figma</a>
-            </Link>
           </div>
           <div className={styles.social}>
             <div className={styles.caption}>Resources</div>
-            <Link href={"/"}>
-              <a>Community Resources Hub</a>
-            </Link>
-            <Link href={"/"}>
-              <a>Support</a>
-            </Link>
-            <Link href={"/"}>
-              <a>Education</a>
-            </Link>
             <Link href={"/"}>
               <a>Community Resources Hub</a>
             </Link>

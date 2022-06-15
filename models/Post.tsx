@@ -6,6 +6,7 @@ const PostSchema = new Schema({
   title: String,
   text: String,
   postPhoto: String,
+  slug: String,
   author: {
     type: Schema.Types.ObjectId,
     ref: Author

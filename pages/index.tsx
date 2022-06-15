@@ -6,6 +6,8 @@ import { CommentsType } from "../interfaces/Interfaces";
 import { FormEvent, useState } from "react";
 import useToastContext from "../components/Toast/useToastContext";
 import axios from "axios";
+import Header from '../components/Header/Header';
+import { Loader } from '../components/Loader/Loader';
 
 export default function Home(props: CommentsType) {
   const [email, setEmail] = useState(" ");
@@ -18,8 +20,9 @@ export default function Home(props: CommentsType) {
   };
 
   return (
-    <div className={styles.background}>
-      <MainLayout color={"#FFFFFF"} logoColor={"#FFFFFF"} greyBtn>
+    <MainLayout>
+      <div className={styles.background}>
+        <Header color={"#FFFFFF"} logoColor={"#FFFFFF"} greyBtn/>
         <div className={"mainContainer"}>
           <div className={styles.firstContainer}>
             <div className={styles.textContent}>
@@ -43,17 +46,17 @@ export default function Home(props: CommentsType) {
             </form>
           </div>
         </div>
-        <Description/>
-        <Comments comments={props.comments}/>
-      </MainLayout>
-    </div>
+      </div>
+      <Description/>
+      <Comments comments={props.comments}/>
+    </MainLayout>
   );
 }
 
-export async function getServerSideProps() {
+export const getServerSideProps = async () => {
   try {
     const response = await axios.get(`${process.env.LOCALHOST_URL}/comments`);
-    const comments = response.data.comments;
+    const comments = await response.data.comments;
 
     return {
       props: {
@@ -61,12 +64,8 @@ export async function getServerSideProps() {
       },
     };
   } catch (e) {
-
-    return { props: {} }
-    // return {
-    //   redirect: {
-    //     destination: '/',
-    //   }
-    // }
+    return {
+      props: {}
+    }
   }
 }

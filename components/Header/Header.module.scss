@@ -1,7 +1,10 @@
 @import '../../styles/mixins';
 @import '../../styles/settings';
 
-.link {
+.link,
+.link:link,
+.link:visited,
+.active{
   border-bottom: 1px solid #6D7D8B;
   font-weight: 700;
   line-height: 28px;
@@ -12,7 +15,12 @@
 
   &:hover {
     color: #6D7D8B;
+    //color: #FFB200;
+    opacity: 0.5;
   }
+}
+.active{
+  border-bottom: none;
 }
 
 .nav {
